@@ -1,7 +1,7 @@
-const { StatusCode}  = require('http-status-codes')
+const { StatusCodes}  = require('http-status-codes')
 
 const info = (req,res)=>{
-    return res.status(StatusCode.INTERNAL_SERVER_ERROR).json({
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         success : true , 
         message : "API is live",
         error : {},
