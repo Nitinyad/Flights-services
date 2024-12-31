@@ -6,14 +6,14 @@ class CrudeRepository{
     }
 
     async create(data){
-        console.log("inside the repo")
-        try {
+        // console.log("inside the repo")
+        // try {
             const res = await this.model.create(data);
             return res;
-        } catch (error) {
-            Logger.error("Something went wrong in the crud repo : create");
-            throw error;
-        }
+        // } catch (error) {
+        //     Logger.error("Something went wrong in the crud repo : create");
+        //     throw error;
+        // }
         // const res = await this.model.create(data);
         // return res;
     }
