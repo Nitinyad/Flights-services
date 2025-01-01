@@ -13,11 +13,14 @@ class CrudeRepository{
     }
 
     async destory(data){
-        const res = await this.model.destory({
+        const res = await this.model.destroy({
             where : {
                 id : data
             }
         });
+        if(!res){
+            throw new AppError('Not able to find the resource' , StatusCodes.NOT_FOUND)
+        }
         return res;
     }
 
