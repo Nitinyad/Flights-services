@@ -81,9 +81,28 @@ async function destoryAirplane(req,res){
     }
 }
 
+
+/***
+ * PATCH : /airplanes/:id
+ * req body {}
+ * */
+async function updateAirplane(req,res){
+    try {
+        const airplane = await AirplaneService.updatedAirplane(req.params.id , {capacity : req.body.capacity});
+        SuccessResponse.data = airplane;
+        return res.status(StatusCodes.OK).json(SuccessResponse);
+    } catch (error) {
+        ErrorResponse.error = error;
+        ErrorResponse.message = "Something went wrong while updating the airplane.";
+        return res.status(error.statusCode)
+                .json(ErrorResponse);
+    }
+}
+
 module.exports ={
     createAirplane,
     getAirplanes,
     getAirplane,
-    destoryAirplane
+    destoryAirplane,
+    updateAirplane
 }
